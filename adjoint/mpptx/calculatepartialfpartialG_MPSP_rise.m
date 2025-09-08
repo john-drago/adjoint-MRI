@@ -1,0 +1,13 @@
+function [ partialfpartialGrise_real, partialfpartialGrise_imag ] = calculatepartialfpartialG_MPSP_rise(...
+    partialfpartialBz, wv, opt, ti )
+
+% Calculate partBpartGi
+partBpartGmagi = ( ( ti - wv.tStMPSP ) / wv.MPSPGradSlewTime ) *...
+    cos( wv.wz_mpptx * wv.MPSPGradSlewTime + wv.G_ph_MPSP );
+partBpartGphi = ( -( ti - wv.tStMPSP ) / wv.MPSPGradSlewTime ) *...
+    wv.G_mag_MPSP .* sin( wv.wz_mpptx * wv.MPSPGradSlewTime + wv.G_ph_MPSP );
+
+[ partialfpartialGrise_real, partialfpartialGrise_imag ] = calculatepartialfpartialG_MPSP(...
+    partialfpartialBz, partBpartGmagi, partBpartGphi, wv, opt );
+
+end

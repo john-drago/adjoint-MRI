@@ -1,0 +1,19 @@
+function [ A_RFslew, b_RFslew ] = constraintMPpTxPulseRFSlew( opt, RFSlewConstr )
+% This function will generate the matrices used for the slew constraints
+% during the RF pulses for the MPSP and ORSP.
+
+[ A_RFslew_breal_ORSP, b_RFslew_breal_ORSP ] = generateSlewRateMatrixArray(...
+    'breal-ORSP', opt.numXYCoils, opt, RFSlewConstr );
+[ A_RFslew_bimag_ORSP, b_RFslew_bimag_ORSP ] = generateSlewRateMatrixArray(...
+    'bimag-ORSP', opt.numXYCoils, opt, RFSlewConstr );
+[ A_RFslew_breal_MPSP, b_RFslew_breal_MPSP ] = generateSlewRateMatrixArray(...
+    'breal-MPSP', opt.numXYCoils, opt, RFSlewConstr );
+[ A_RFslew_bimag_MPSP, b_RFslew_bimag_MPSP ] = generateSlewRateMatrixArray(...
+    'bimag-MPSP', opt.numXYCoils, opt, RFSlewConstr );
+
+A_RFslew = [ A_RFslew_breal_ORSP; A_RFslew_bimag_ORSP;...
+    A_RFslew_breal_MPSP; A_RFslew_bimag_MPSP ];
+
+b_RFslew = [ b_RFslew_breal_ORSP; b_RFslew_bimag_ORSP;...
+    b_RFslew_breal_MPSP; b_RFslew_bimag_MPSP ];
+end

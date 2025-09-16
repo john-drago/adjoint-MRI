@@ -1,0 +1,23 @@
+function [ partialfpartialbrealcheb, partialfpartialbimagcheb ] = calcpartialBpartialRFCheb(...
+    partialfpartialBx, partialfpartialBy, opt, wv, nn )
+
+Tn_nn = wv.Tn( nn, 1:opt.numCheb_RF );
+
+b1preal_rshp = reshape( wv.b1preal, [opt.numPos, 1, opt.numXYCoils] );
+b1pimag_rshp = reshape( wv.b1pimag, [opt.numPos, 1, opt.numXYCoils] );
+
+Tnttrepb1preal = reshape(...
+    Tn_nn .* b1preal_rshp, [ opt.numPos, 1, opt.numCheb_RF*opt.numXYCoils ] );
+
+Tnttrepb1pimag = reshape(...
+    Tn_nn .* b1pimag_rshp, [ opt.numPos, 1, opt.numCheb_RF*opt.numXYCoils ] );
+
+partialfpartialbrealcheb =...
+    +partialfpartialBx .* Tnttrepb1preal +...
+    +partialfpartialBy .* Tnttrepb1pimag;
+
+partialfpartialbimagcheb =...
+    -partialfpartialBx .* Tnttrepb1pimag +...
+    +partialfpartialBy .* Tnttrepb1preal;
+
+end

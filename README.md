@@ -14,7 +14,7 @@ git clone https://github.com/john-drago/adjoint-MRI.git "$ADJOINTMRIPATH/adjoint
 mkdir -p "$ADJOINTMRIPATH/data"
 ```
 
-Copy the field map data from [this link](https://www.dropbox.com/home/John%20Drago/public/adjoint-MRI%20fields) into `"$ADJOINTMRIPATH/data"`. 
+Copy the field map data from [this link](https://www.dropbox.com/scl/fo/hgihgdz7ddtvi9m738gat/AAja8SCBS_UjW5yP71Qf0MM?rlkey=nyfasth7379rqs1ecv2783okm&st=tcri4nte&dl=0) into `"$ADJOINTMRIPATH/data"`. 
 
  Run the following output (from the shell) to get the directory for MATLAB®:
 

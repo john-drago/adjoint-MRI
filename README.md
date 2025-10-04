@@ -56,7 +56,7 @@ adjoint-MRI/
 │   │   └── ...                              % other Chebyshev functions, constraints, derivatives
 │   ├── fourier/
 │   ├── pp/                                  % piecewise-continuous polynomial
-│   ├── pwc/                                 % piecewise-constant polynomial
+│   ├── pwc/                                 % piecewise-constant basis
 │   ├── run/                                 % core adjoint functions
 │   └── ...                                  % additional contents
 ├── scripts/
